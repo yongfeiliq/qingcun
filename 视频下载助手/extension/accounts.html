@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>轻存 · 平台账号</title>
+    <link rel="stylesheet" href="accounts.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow">轻存 · 浏览器连接</p>
+          <h1>平台账号</h1>
+        </div>
+        <button id="checkAll">刷新状态</button>
+      </header>
+      <p id="message" role="status" aria-live="polite"></p>
+      <section id="accounts" aria-label="平台登录状态"></section>
+      <footer>轻存不会读取密码或验证码；本页不收集 Cookie、访问令牌或个人账号信息。</footer>
+    </main>
+    <script src="platform-auth.js"></script>
+    <script src="auth-status.js"></script>
+    <script src="accounts.js"></script>
+  </body>
+</html>

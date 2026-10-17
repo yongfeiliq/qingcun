@@ -1,0 +1,27 @@
+{
+  "id": "QINGCUNEAGLE200",
+  "version": "2.3.14",
+  "platform": "win",
+  "arch": "all",
+  "name": "轻存 · 参考片入库",
+  "logo": "/logo.png",
+  "keywords": [
+    "视频",
+    "下载",
+    "参考片",
+    "镜头",
+    "品牌"
+  ],
+  "devTools": false,
+  "main": {
+    "url": "index.html",
+    "width": 1280,
+    "height": 900,
+    "minWidth": 900,
+    "minHeight": 650,
+    "resizable": true,
+    "multiple": false,
+    "serviceMode": true,
+    "runAfterInstall": true
+  }
+}

@@ -1,0 +1,8 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>片子类型 · 轻存</title><link rel="stylesheet" href="image.css"><link rel="stylesheet" href="film-type.css"></head><body>
+<header><div><small>片子类型</small><h1 id="title">正在读取视频…</h1></div><button id="back">返回素材列表</button></header>
+<main><aside><div class="preview"><video id="preview" controls preload="metadata"></video></div><p class="hint">原视频预览，保留声音。</p><div class="actions"><button id="reveal">定位原文件</button><a id="source" hidden>查看来源 ↗</a></div></aside>
+<section class="details"><div id="notice" role="status" aria-live="polite"></div><section class="panel"><div class="heading"><div><h2>这是什么类型的片子？</h2><p class="hint">为整条视频选择一个主要类型。</p></div><button class="primary" id="analyze">识别片子类型</button></div>
+<p class="model-note">抽取少量画面交给设置中的模型，使用对应额度。只判断片子类型，不逐镜头分析。结果先供你确认；无法判断时可以保持无标签。</p>
+<p id="state"></p><form id="typeForm"><label class="type-field" for="type">主要类型<select id="type"></select></label><div class="actions"><button class="primary" id="accept">确认并写回 Eagle</button><button type="button" id="discard" hidden>放弃本次结果</button></div></form></section>
+<section class="panel"><h2>已有标签</h2><p class="hint">原有标签与个人备注保留。此次仅添加确认后的类型标签。</p><div id="original" class="chips"></div></section></section></main>
+<script src="film-type.js"></script></body></html>

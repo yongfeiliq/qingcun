@@ -1,0 +1,80 @@
+:root {
+  color-scheme: light;
+  font:
+    16px/1.6 -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  color: #203d35;
+  background: #f6f8f4;
+}
+body {
+  margin: 0;
+}
+main {
+  max-width: 1080px;
+  margin: 48px auto;
+  padding: 0 28px;
+}
+header,
+.account-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+h1 {
+  margin: 0;
+  font-size: 38px;
+}
+.eyebrow {
+  color: #668575;
+  margin: 0;
+}
+.notice,
+footer {
+  color: #64776e;
+}
+#accounts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+article {
+  background: white;
+  border: 1px solid #dce4da;
+  border-radius: 16px;
+  padding: 20px;
+}
+h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+button,
+a {
+  border: 1px solid #cedacc;
+  padding: 8px 12px;
+  border-radius: 9px;
+  background: white;
+  color: #215b47;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #508e6e;
+  outline-offset: 3px;
+}
+.status {
+  min-height: 28px;
+}
+.detail {
+  color: #6e7a72;
+  font-size: 14px;
+  min-height: 44px;
+}

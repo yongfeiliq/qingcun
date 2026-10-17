@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>轻存 · 参考片入库</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="workspace.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <img src="logo.png" alt="" />
+        <strong>轻存</strong>
+      </div>
+      <nav aria-label="主要功能">
+        <button class="active" data-page="download">下载入库</button
+        ><button data-page="existing">已有素材</button
+        ><button data-page="library">素材分析</button><button data-page="settings">设置</button>
+      </nav>
+      <span class="badge">Eagle 2.3.14</span>
+    </header>
+    <main id="home">
+      <section class="intro"><h1>下载入库</h1></section>
+      <div class="layout">
+        <section class="composer panel">
+          <div class="section-title">
+            <h2>添加参考片</h2>
+            <span>一次最多 20 条</span>
+          </div>
+          <form id="downloadForm">
+            <label for="urls">视频链接</label
+            ><textarea
+              id="urls"
+              rows="3"
+              placeholder="每行粘贴一个视频或作品页链接"
+              required
+              spellcheck="false"
+            ></textarea>
+
+            <div class="fields">
+              <label
+                >画质<select id="quality">
+                  <option value="best">最佳画质</option>
+                  <option value="1080">最高 1080p</option>
+                  <option value="720">最高 720p</option>
+                </select></label
+              ><label
+                >品牌<input id="brand" placeholder="自动识别，也可手动填写" maxlength="100"
+              /></label>
+            </div>
+            <details>
+              <summary>字幕选项</summary>
+              <div class="fields">
+                <label
+                  >字幕处理<select id="subtitleMode">
+                    <option value="none">不处理字幕</option>
+                    <option value="files">另存 SRT 字幕</option>
+                    <option value="burn">烧录字幕副本 + SRT</option>
+                    <option value="only">只下载字幕</option>
+                  </select></label
+                ><label
+                  >字幕语言<select id="language">
+                    <option value="auto">优先中文，其次原语言</option>
+                    <option value="zh">中文</option>
+                    <option value="en">英语</option>
+                    <option value="ja">日语</option>
+                    <option value="ko">韩语</option>
+                  </select></label
+                >
+              </div>
+            </details>
+            <button id="submit" class="primary download-button" disabled>
+              开始下载 <span>↓</span>
+            </button>
+            <p id="message" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+        <aside>
+          <section class="panel destination">
+            <div class="section-title">
+              <h2>自动入库</h2>
+              <span id="connection" class="dot-label">正在连接</span>
+            </div>
+            <h3 id="libraryName">读取 Eagle 资源库…</h3>
+            <p id="libraryPath" class="library-path"></p>
+            <button id="chooseLibrary" class="library-choice-button" disabled>选择资源库…</button>
+
+            <div class="metrics">
+              <div><strong id="imported">0</strong><span>已入库视频</span></div>
+              <div><strong id="pending">0</strong><span>待重试</span></div>
+            </div>
+            <div class="actions">
+              <button id="openRoot">打开 Eagle 文件夹 ↗</button><button id="sync">立即同步</button>
+            </div>
+            <p id="syncState" class="hint" role="status">准备自动入库…</p>
+            <label class="check"
+              ><input id="autoSync" type="checkbox" checked />自动入库所有轻存下载</label
+            >
+          </section>
+        </aside>
+      </div>
+      <section class="panel activity">
+        <div class="section-title">
+          <h2>下载动态</h2>
+          <button id="refresh">刷新</button>
+        </div>
+        <div id="jobs"><p class="empty">还没有下载任务。添加一条喜欢的参考片吧。</p></div>
+      </section>
+      <section class="panel activity">
+        <div class="section-title">
+          <h2>最近入库</h2>
+        </div>
+        <div id="recent"></div>
+        <div id="errors" role="status"></div>
+      </section>
+    </main>
+    <main id="existingPageWrap" hidden>
+      <section class="intro"><h1>已有素材</h1></section>
+      <section class="panel existing-controls">
+        <div class="section-title">
+          <h2 id="existingLibrary">Eagle 已有素材</h2>
+          <span id="existingTotal">0 项素材</span>
+        </div>
+        <div class="existing-toolbar">
+          <button id="existingSelected" class="primary">读取 Eagle 已选素材</button
+          ><button id="existingBrowse">浏览当前资源库</button
+          ><select id="existingType" aria-label="素材类型">
+            <option value="">图片与视频</option>
+            <option value="image">仅图片</option>
+            <option value="video">仅视频</option></select
+          ><input
+            id="existingSearch"
+            aria-label="搜索已有素材"
+            placeholder="搜索素材名称或已有标签"
+          />
+        </div>
+
+        <div class="existing-batch">
+          <div>
+            <h3>产品与智能标签</h3>
+            <div class="actions">
+              <button id="existingBasic" disabled>补充产品标签</button
+              ><button id="existingAnalyze" class="primary" disabled>智能分析标签</button>
+            </div>
+          </div>
+          <div>
+            <h3>批量添加自己的标签</h3>
+            <div class="existing-custom">
+              <input
+                id="existingLabels"
+                aria-label="自定义标签"
+                placeholder="例如：汽车广告、参考片（逗号分隔）"
+              /><button id="existingCustom" disabled>添加标签</button>
+            </div>
+          </div>
+        </div>
+        <details class="usage-details">
+          <summary>分析说明</summary>
+          <p>
+            视频只识别整条片子的主要类型，例如汽车广告、产品展示、品牌宣传片、MV、动画短片。不分析镜头、运镜、景别或色调；无法判断时保持无标签。抽样画面会发送给设置中的模型，使用对应额度，确认后写回
+            Eagle。视频限 5 分钟。图片沿用图片视觉标签，GIF、多页图片取首帧。
+          </p>
+        </details>
+        <div class="existing-queue">
+          <span id="existingQueue">没有排队中的分析任务</span
+          ><button id="existingStop">停止后续分析</button>
+        </div>
+        <p id="existingNotice" role="status" aria-live="polite"></p>
+      </section>
+      <section class="panel existing-results">
+        <div class="section-title">
+          <h2 id="existingCount">已选 0 条</h2>
+          <div class="actions">
+            <button id="existingSelectPage">选择本页</button
+            ><button id="existingClear">清空选择</button>
+          </div>
+        </div>
+        <div id="existingRows"></div>
+        <p id="existingEmpty" class="empty">先读取 Eagle 已选素材，或浏览当前资源库。</p>
+        <div class="existing-pagination">
+          <button id="existingPrev">上一页</button><span id="existingPage">1 / 1</span
+          ><button id="existingNext">下一页</button>
+        </div>
+      </section>
+    </main>
+    <section id="frameWrap" hidden>
+      <iframe id="workspace" title="分析与标签" src="about:blank"></iframe>
+    </section>
+    <dialog id="libraryChooser">
+      <form method="dialog">
+        <div class="section-title">
+          <h2>选择入库资源库</h2>
+          <button value="cancel" aria-label="关闭">×</button>
+        </div>
+        <p>待入库视频和之后的下载将进入所选库。旧素材保留在原库，Eagle 会切换到你选的库。</p>
+        <label for="librarySelect">最近使用的资源库</label
+        ><select id="librarySelect"></select>
+        <p id="libraryChoicePath" class="library-path"></p>
+        <div class="actions">
+          <button id="browseLibrary" type="button">浏览选择 .library…</button
+          ><button id="currentLibrary" type="button">使用 Eagle 当前库</button>
+        </div>
+        <p id="libraryChoiceMessage" role="status" aria-live="polite"></p>
+        <div class="dialog-actions">
+          <button value="cancel">取消</button
+          ><button id="applyLibrary" type="button" class="primary">设为入库资源库</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="duplicate">
+      <form method="dialog">
+        <div class="section-title">
+          <h2>这些视频已有记录</h2>
+          <button value="cancel" aria-label="关闭">×</button>
+        </div>
+        <p>
+          选择保留现有视频、另存一份或替换。替换 Eagle 原片会保留分类和资料；另存一份会新增视频。
+        </p>
+        <div id="duplicateRows"></div>
+        <div class="dialog-actions">
+          <button value="cancel">取消本次</button
+          ><button id="confirmDuplicate" value="confirm" class="primary">按选择继续</button>
+        </div>
+      </form>
+    </dialog>
+    <script src="app.js"></script>
+    <script src="existing-ui.js"></script>
+    <script src="extension/auth-status.js"></script>
+  </body>
+</html>

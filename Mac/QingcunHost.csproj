@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup><OutputType>Exe</OutputType><StartupObject>MacBootstrap</StartupObject><TargetFramework>net8.0</TargetFramework><AssemblyName>QingcunHost</AssemblyName><Version>2.3.3</Version><ImplicitUsings>disable</ImplicitUsings><Nullable>disable</Nullable><EnableDefaultCompileItems>false</EnableDefaultCompileItems><NoWarn>SYSLIB0014;CA1416</NoWarn><InvariantGlobalization>true</InvariantGlobalization><DebugType>none</DebugType><EnableNETAnalyzers>false</EnableNETAnalyzers></PropertyGroup>
+ <ItemGroup><Compile Include="generated/Host.cs"/><Compile Include="generated/*.cs" Exclude="generated/Host.cs"/><Compile Include="Compatibility.cs"/><Compile Include="Bootstrap.cs"/><Compile Include="MacInstaller.cs"/></ItemGroup>
+</Project>

@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "轻存 · 视频下载助手",
+  "version": "2.3.14",
+  "description": "多平台视频下载、导演账号与中文镜头标签：运镜、景别、冷暖色调。",
+  "permissions": [
+    "activeTab",
+    "nativeMessaging",
+    "storage",
+    "scripting",
+    "alarms",
+    "cookies"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "轻存 · 下载视频"
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAms9bGqBp5h4cI77UzCXdDRdPU+3/p8bKhv6tsogx+AN4XH3HUu1ebq++p4FOd5ku7K5ZdJA/BF5M7Zmbl4J8dFCtPXY8gsk7vfiKeTbDYUlUQh0Sp6Kb76J7RhFIG2g9oTtDjEiE5jtga+llV7fnx+DpfPHWF4vtkkM1J90+VkUXVVO58fsXwicVrgs+/JCKETrGTzkQWyDGEpry7hk5V7aQG5GwpE2lm1oZjQBdfbg7vAQ2aqapbuzOJi2FzchUqUYEH6n3iSh49NdQeYUz+3nz7Bo0sG2u55Pl+wbkaAeKRdf4y1VHhJOZIVJjTDtC979Q/SJpQQBUWC3V8yqOPQIDAQAB",
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

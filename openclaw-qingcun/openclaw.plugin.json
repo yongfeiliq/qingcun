@@ -1,0 +1,13 @@
+{
+  "id": "qingcun",
+  "name": "轻存 · Eagle 参考片",
+  "description": "在本机调用已安装的轻存，检查下载记录并将参考片加入 Eagle 入库队列。",
+  "version": "0.1.0",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  },
+  "activation": { "onStartup": true },
+  "contracts": { "tools": ["qingcun_status", "qingcun_download"] }
+}

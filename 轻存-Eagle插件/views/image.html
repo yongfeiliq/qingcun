@@ -1,0 +1,8 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>图片标签 · 轻存</title><link rel="stylesheet" href="image.css"></head><body>
+<header><div><small>图片标签</small><h1 id="title">正在读取图片…</h1></div><button id="back">返回素材列表</button></header>
+<main><aside><div class="preview"><img id="preview" alt="当前图片预览"></div><p id="meta"></p><p class="hint">显示本地预览副本。透明区域以白底展示；GIF、多页图片取首帧。</p><div class="actions"><button id="reveal">定位原文件</button><a id="source" hidden target="_blank" rel="noopener noreferrer">查看来源 ↗</a></div></aside>
+<section class="details"><div id="notice" role="status" aria-live="polite"></div><section class="panel"><div class="heading"><div><h2>图片视觉标签</h2><p class="hint">每组保留最明确的一个标签，可修改后确认。</p></div><button class="primary" id="analyze">智能分析图片</button></div>
+<p class="model-note">将本图的缩小副本提交给设置中的模型，使用对应额度。模型推测先待确认，无法确定的项目可保留“待确认”。</p>
+<p id="state"></p><form id="analysisForm"><div id="fields" class="fields"></div><div class="actions"><button class="primary" id="accept">确认并写回 Eagle</button><button type="button" id="discard" hidden>放弃本次结果</button></div></form></section>
+<section class="panel"><h2>基础与自定义标签</h2><p class="hint">已有 Eagle 标签保留。来源与品牌名称沿用原名。</p><div id="original" class="chips"></div><div id="tags"></div><form id="tagForm" class="tag-form"><input id="tagName" placeholder="添加中文标签，例如：产品海报" aria-label="中文标签" maxlength="80" required><button>添加标签</button></form></section>
+</section></main><script src="image.js"></script></body></html>
