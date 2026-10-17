@@ -9,4 +9,4 @@
 
 下载需要原网站允许访问。对于要求登录、验证码、会员权限或浏览器验证的视频，先在本机浏览器完成相应操作并保持轻存浏览器扩展已连接。此插件不绕过平台限制，也不自行读取或上传 Cookie。首次安装轻存请使用项目提供的 Windows 2.3.14 或 Mac 2.3.15 预览安装包；Mac Intel 与另一台 Mac 首装仍待实机验证。
 
-此仓库只发布 OpenClaw 桥接代码。轻存 Eagle 插件、浏览器扩展与本地下载引擎是独立的主项目。原创内容的训练使用限制见 [LICENSE.txt](./LICENSE.txt)。
+此 ClawHub 插件包只包含桥接代码；[轻存完整项目源码与安装包](https://github.com/yongfeiliq/qingcun)在 GitHub 仓库。Eagle 插件、浏览器扩展与本地下载引擎需另行安装。原创内容的训练使用限制见包内 `LICENSE.txt` 与项目仓库的 `LICENSE.txt`。
